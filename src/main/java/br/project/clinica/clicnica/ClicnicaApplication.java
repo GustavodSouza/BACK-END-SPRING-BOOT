@@ -10,14 +10,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import br.project.clinica.controller.UsuarioController;
 import br.project.clinica.repository.UsuarioRepository;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = { ErrorMvcAutoConfiguration.class })
 @EntityScan("br.project.clinica.model")
-@ComponentScan(basePackages = {"br.project.clinica.controller", "br.project.clinica.repository"})
-@EnableJpaRepositories(basePackageClasses =  UsuarioRepository.class)
+@ComponentScan(basePackages = {"br.project.clinica.controller", "br.project.clinica.service"})
+@EnableJpaRepositories("br.project.clinica.repository")
 public class ClicnicaApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
