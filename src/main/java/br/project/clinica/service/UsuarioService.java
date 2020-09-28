@@ -1,6 +1,7 @@
 package br.project.clinica.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,14 @@ public class UsuarioService {
 	
 	public List<Usuario> getUsuarios() {
 		return usuarioRepository.findAll();
+	}
+	
+	public Usuario encontrarUsuario(Integer id) {
+		Optional<Usuario> optUser = usuarioRepository.findById(id);
+		return optUser.get();
+	}
+	
+	public void deletarUsuario(Usuario usuario) {
+		usuarioRepository.delete(usuario);
 	}
 }
